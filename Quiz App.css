@@ -1,0 +1,176 @@
+/* --- BASE & BACKGROUND --- */
+body {
+    background: linear-gradient(135deg, #4b3832 0%, #3c2f2f 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+header {
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+/* --- GLOSSY NAVBAR --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    padding: 10px 25px;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+    background: #7f5539;
+    outline: 3px solid #b08968;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2),
+                        inset 0 -4px 0px rgba(67, 40, 24, 0.3);
+}
+
+
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap:30px;
+    padding-left: 10px;
+}
+
+.nav-links li { margin-right: 30px; }
+.nav-links a { text-decoration: none; 
+    color: #ede0d4; 
+    font-weight: 700;
+     font-size: 1.1rem; 
+    transition: all 0.3s ease; }
+
+.nav-links a:hover {
+            color: #ddb892; 
+            text-shadow: 0 0 10px rgba(221, 184, 146, 0.5);
+    }
+.search-box {
+            display: flex;
+            align-items: center;
+            background: #ede0d4; /* Creamy background */
+            border-radius: 30px;
+            padding: 5px 20px;
+            width: 40%;
+            border: 2px solid #b08968;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+        }
+.search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            padding: 8px 0;
+            width: 100%;
+            color: #4b3832;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .search-box input::placeholder {
+            color: #b08968;
+            opacity: 0.8;
+        }
+
+        /* Tiny icon or decorative element */
+        .search-icon {
+            margin-right: 8px;
+            font-size: 1rem;
+        }
+#search {
+    padding: 8px 18px;
+    border-radius: 20px;
+    border: 2px solid #58b9cf;
+    outline: none;
+    z-index: 2;
+    position: relative;
+}
+
+/* --- GLASS CONTAINER --- */
+.quiz-container {
+    background: #ddb892;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 4px solid #b08968;
+    padding: 60px 50px;
+    border-radius: 50px;
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    inset : 0 -8px 0px rgba(127, 85, 57, 0.3); 
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    position: relative
+}
+ .h1 {
+            font-size: 2.2rem;
+            color: #432818; /* Dark Chocolate */
+            margin-bottom: 12px;
+            text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.2);
+        }
+.quiz-container::before {
+            content: "☕";
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            background: #b08968;
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+/* Dynamic Option Buttons */
+.option-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 14px;
+    border-radius: 12px;
+    text-align: left;
+    transition: 0.2s;
+    cursor: pointer;
+    color: white;
+}
+
+.start-btn {
+            background-color: #7f5539; /* Rich Brown */
+            color: #ede0d4;
+            border: 2px solid #582f0e;
+            padding: 10px 25px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 8px 0px #582f0e;
+            transition: all 0.1s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 20px;
+        }
+
+        .start-btn:hover {
+            background-color: #9c6644;
+            transform: translateY(2px);
+            box-shadow: 0 6px 0px #582f0e;
+        }
+
+        .start-btn:active {
+            transform: translateY(8px);
+            box-shadow: 0 0px 0px #582f0e;}
+
+.option-btn:hover { background: rgba(255, 255, 255, 0.2); transform: translateX(5px); }
+
+.hidden { display: none !important; }
+
+.correct { background: #22c55e !important; border-color: white !important; }
+.wrong { background: #ef4444 !important; border-color: white !important; }
+
+/* Styling the Select dropdown options */
+select option { background: #4c51bf; color: white; }

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Glossy Quiz AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="Quiz App.css">
+</head>
+<body>
+    
+    <header>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+            <div class="search-box">
+               <span class="search-icon">🔍</span>
+            <input type="text" placeholder="Search this website...">
+        </div>
+            </div>
+        </nav>
+    </header>
+
+    <div id="main-container" class="quiz-container glass">
+        
+        <div id="home-screen">
+            <h1 class="h1" >QUIZ </h1>
+            <p class="text-sm opacity-80 mb-8 text-white">Select your challenge settings</p>
+            
+            <div class="space-y-4 text-left text-white">
+                <div>
+                    <label class="text-xs font-bold uppercase opacity-60 ml-1">Category</label>
+                    <select id="category-select" class="w-full bg-white/10 border border-white/20 rounded-xl p-3 outline-none focus:bg-white/20 transition">
+                        <option value="any">Any Category</option>
+                        <option value="9">General Knowledge</option>
+                        <option value="18">Science: Computers</option>
+                        <option value="21">Sports</option>
+                        <option value="23">History</option>
+                        <option value="24">Politics</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="text-xs font-bold uppercase opacity-60 ml-1">Difficulty</label>
+                        <select id="difficulty-select" class="w-full bg-white/10 border border-white/20 rounded-xl p-3 outline-none focus:bg-white/20">
+                            <option value="any">Any</option>
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold uppercase opacity-60 ml-1">Questions</label>
+                        <select id="amount-select" class="w-full bg-white/10 border border-white/20 rounded-xl p-3 outline-none focus:bg-white/20">
+                            <option value="5">5</option>
+                            <option value="10" selected>10</option>
+                            <option value="15">15</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <button id="start-btn" class="start-btn">
+                START QUIZ
+            </button>
+        </div>
+
+        <div id="loading" class="hidden py-10 text-white">
+            <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-white mx-auto mb-4"></div>
+            <p>Generating Questions...</p>
+        </div>
+
+        <div id="quiz-content" class="hidden text-white">
+            <div class="flex justify-between mb-6">
+                <span id="category-tag" class="bg-white/20 px-3 py-1 rounded-full text-[10px] uppercase tracking-widest font-bold">Category</span>
+                <span id="timer" class="text-yellow-300 font-mono text-xl">15s</span>
+            </div>
+            <h2 id="question" class="text-xl font-medium mb-8 leading-relaxed min-h-[100px]"></h2>
+            <div id="options-container" class="grid grid-cols-1 gap-3"></div>
+            
+            <div class="mt-8 pt-6 border-t border-white/10 text-xs flex justify-between opacity-60">
+                <span>SCORE: <b id="score" class="text-white">0</b></span>
+                <span>PROGRESS: <b id="progress" class="text-white">1</b></span>
+            </div>
+        </div>
+
+        <div id="result-screen" class="hidden text-white">
+            <div class="text-5xl mb-4">🏆</div>
+            <h2 class="text-3xl font-bold mb-2">Quiz Complete!</h2>
+            <div class="text-6xl font-black text-yellow-300 mb-8"><span id="final-score">0</span></div>
+            <button onclick="location.reload()" class="w-full border-2 border-white/30 py-3 rounded-xl hover:bg-white hover:text-indigo-900 transition font-bold">Try Another Topic</button>
+        </div>
+    </div>
+
+    <script src="Quiz App.js"></script>
+</body>
+</html>
