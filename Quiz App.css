@@ -8,6 +8,11 @@ body {
     margin: 0;
     padding: 20px;
     font-family: 'Quicksand', sans-serif;
+    border:20px solid #3d3126;
+    outline: 8px solid #25211f;
+    outline-offset: -18px;
+    box-sizing: border-box;
+    border-radius: 25px;
 }
 
 header {
@@ -23,111 +28,87 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 95%;
+    width: 90%;
     padding: 10px 25px;
     border-radius: 50px;
     position: relative;
-    overflow: hidden;
     background: #7f5539;
     outline: 3px solid #b08968;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2),
-                        inset 0 -4px 0px rgba(67, 40, 24, 0.3);
+                inset 0 -4px 0px rgba(67, 40, 24, 0.3);
 }
-
-
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap:30px;
-    padding-left: 10px;
+    gap: 20px;
 }
 
-.nav-links li { margin-right: 30px; }
-.nav-links a { text-decoration: none; 
+.nav-links a { 
+    text-decoration: none; 
     color: #ede0d4; 
     font-weight: 700;
-     font-size: 1.1rem; 
-    transition: all 0.3s ease; }
+    transition: 0.3s; 
+}
 
 .nav-links a:hover {
-            color: #ddb892; 
-            text-shadow: 0 0 10px rgba(221, 184, 146, 0.5);
-    }
+    color: #ddb892; 
+    text-shadow: 0 0 10px rgba(221, 184, 146, 0.5);
+}
+
+/* --- SEARCH BOX (Redirects to Google) --- */
 .search-box {
-            display: flex;
-            align-items: center;
-            background: #ede0d4; /* Creamy background */
-            border-radius: 30px;
-            padding: 5px 20px;
-            width: 40%;
-            border: 2px solid #b08968;
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
-        }
+    display: flex;
+    align-items: center;
+    background: #ede0d4; 
+    border-radius: 30px;
+    padding: 5px 15px;
+    width: 35%;
+    border: 2px solid #b08968;
+}
+
+.search-box form { display: flex; flex-grow: 1; }
+
 .search-box input {
-            border: none;
-            background: transparent;
-            outline: none;
-            padding: 8px 0;
-            width: 100%;
-            color: #4b3832;
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-
-        .search-box input::placeholder {
-            color: #b08968;
-            opacity: 0.8;
-        }
-
-        /* Tiny icon or decorative element */
-        .search-icon {
-            margin-right: 8px;
-            font-size: 1rem;
-        }
-#search {
-    padding: 8px 18px;
-    border-radius: 20px;
-    border: 2px solid #58b9cf;
+    border: none;
+    background: transparent;
     outline: none;
-    z-index: 2;
-    position: relative;
+    width: 100%;
+    color: #4b3832;
+    font-size: 0.9rem;
 }
 
 /* --- GLASS CONTAINER --- */
 .quiz-container {
     background: #ddb892;
     backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
     border: 4px solid #b08968;
-    padding: 60px 50px;
+    padding: 50px;
     border-radius: 50px;
-    width: 90%;
-    max-width: 450px;
+    width: 60%;
     text-align: center;
-    inset : 0 -8px 0px rgba(127, 85, 57, 0.3); 
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-    position: relative
+    position: relative;
 }
- .h1 {
-            font-size: 2.2rem;
-            color: #432818; /* Dark Chocolate */
-            margin-bottom: 12px;
-            text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.2);
-        }
-.quiz-container::before {
-            content: "☕";
-            position: absolute;
-            top: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 2rem;
-            background: #b08968;
-            padding: 10px;
-            border-radius: 50%;
-        }
 
-/* Dynamic Option Buttons */
+.h1 {
+    font-size: 2.2rem;
+    color: #432818; 
+    margin-bottom: 12px;
+}
+
+.quiz-container::before {
+    content: "☕";
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    background: #b08968;
+    padding: 10px;
+    border-radius: 50%;
+}
+
 .option-btn {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -136,41 +117,59 @@ header {
     text-align: left;
     transition: 0.2s;
     cursor: pointer;
-    color: white;
+    color: #432818;
+    font-weight: 600;
 }
 
+.option-btn:hover { background: rgba(255, 255, 255, 0.3); transform: translateX(5px); }
+
 .start-btn {
-            background-color: #7f5539; /* Rich Brown */
-            color: #ede0d4;
-            border: 2px solid #582f0e;
-            padding: 10px 25px;
-            font-size: 1.3rem;
-            font-weight: 700;
-            border-radius: 25px;
-            cursor: pointer;
-            box-shadow: 0 8px 0px #582f0e;
-            transition: all 0.1s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin: 20px;
-        }
+    background-color: #7f5539; 
+    color: #ede0d4;
+    border: 2px solid #582f0e;
+    padding: 12px 30px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border-radius: 25px;
+    box-shadow: 0 8px 0px #582f0e;
+    transition: 0.1s;
+    margin-top: 20px;
+}
 
-        .start-btn:hover {
-            background-color: #9c6644;
-            transform: translateY(2px);
-            box-shadow: 0 6px 0px #582f0e;
-        }
-
-        .start-btn:active {
-            transform: translateY(8px);
-            box-shadow: 0 0px 0px #582f0e;}
-
-.option-btn:hover { background: rgba(255, 255, 255, 0.2); transform: translateX(5px); }
+.start-btn:active { transform: translateY(8px); box-shadow: 0 0px 0px #582f0e; }
 
 .hidden { display: none !important; }
 
-.correct { background: #22c55e !important; border-color: white !important; }
-.wrong { background: #ef4444 !important; border-color: white !important; }
+.correct { background: #04792b !important; color: white !important; }
+.wrong { background: #630202c9 !important; color: white !important; }
 
-/* Styling the Select dropdown options */
-select option { background: #4c51bf; color: white; }
+/* --- STATS BOX --- */
+.stats-box {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 15px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #432818;
+}
+
+/* --- LIST ITEMS --- */
+.score-item, .bookmark-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 12px 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #432818;
+    border: 1px solid rgba(176, 137, 104, 0.3);
+    margin-bottom: 10px;
+}
+
+.bookmark-item { display: block; text-align: left; }
+.bookmark-item small { display: block; color: #7f5539; text-transform: uppercase; font-size: 10px; }
+
+.custom-scrollbar::-webkit-scrollbar { width: 6px; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #b08968; border-radius: 10px; }
+
+select option { background: #7f5539; color: white; }

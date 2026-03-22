@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ultimate Glossy Quiz AI</title>
+    <title>Jigyasa</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="Quiz App.css">
 </head>
@@ -12,22 +12,24 @@
     <header>
         <nav class="navbar">
             <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="#" onclick="location.reload()">Home</a></li>
+                <li><a href="#" id="score-link">Score</a></li>
+                <li><a href="#" id="bookmark-link">Bookmark</a></li>
             </ul>
             <div class="search-box">
-               <span class="search-icon">🔍</span>
-            <input type="text" placeholder="Search this website...">
-        </div>
+                <span class="search-icon">🔍</span>
+                <form action="https://www.google.com/search" method="GET" target="_blank" class="flex-grow">
+                    <input type="text" name="q" placeholder="Search Google...">
+                </form>
             </div>
         </nav>
     </header>
 
-    <div id="main-container" class="quiz-container glass">
+    <div id="main-container" class="quiz-container">
         
         <div id="home-screen">
-            <h1 class="h1" >QUIZ </h1>
-            <p class="text-sm opacity-80 mb-8 text-white">Select your challenge settings</p>
+            <h1 class="h1">Ready for QUIZ</h1>
+            <p class="text-sm opacity-80 mb-8 text-[#432818]">Stay cozy, you'll do great!</p>
             
             <div class="space-y-4 text-left text-white">
                 <div>
@@ -63,9 +65,7 @@
                 </div>
             </div>
 
-            <button id="start-btn" class="start-btn">
-                START QUIZ
-            </button>
+            <button id="start-btn" class="start-btn">START QUIZ</button>
         </div>
 
         <div id="loading" class="hidden py-10 text-white">
@@ -74,9 +74,12 @@
         </div>
 
         <div id="quiz-content" class="hidden text-white">
-            <div class="flex justify-between mb-6">
+            <div class="flex justify-between mb-6 items-center">
                 <span id="category-tag" class="bg-white/20 px-3 py-1 rounded-full text-[10px] uppercase tracking-widest font-bold">Category</span>
-                <span id="timer" class="text-yellow-300 font-mono text-xl">15s</span>
+                <div class="flex items-center gap-4">
+                    <button id="bookmark-this" title="Bookmark Question" class="text-xl hover:scale-125 transition">🔖</button>
+                    <span id="timer" class="text-yellow-300 font-mono text-xl">15s</span>
+                </div>
             </div>
             <h2 id="question" class="text-xl font-medium mb-8 leading-relaxed min-h-[100px]"></h2>
             <div id="options-container" class="grid grid-cols-1 gap-3"></div>
@@ -88,10 +91,24 @@
         </div>
 
         <div id="result-screen" class="hidden text-white">
-            <div class="text-5xl mb-4">🏆</div>
-            <h2 class="text-3xl font-bold mb-2">Quiz Complete!</h2>
-            <div class="text-6xl font-black text-yellow-300 mb-8"><span id="final-score">0</span></div>
-            <button onclick="location.reload()" class="w-full border-2 border-white/30 py-3 rounded-xl hover:bg-white hover:text-indigo-900 transition font-bold">Try Another Topic</button>
+            </div>
+    </div>
+
+    <div id="score-modal" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-[#ddb892] border-4 border-[#b08968] p-8 rounded-[40px] max-w-md w-full shadow-2xl relative text-center">
+            <button id="close-modal" class="absolute top-4 right-6 text-3xl text-[#432818] font-bold hover:scale-110 transition cursor-pointer">×</button>
+            <h2 class="h1 mb-6">Past Scores 📜</h2>
+            <div id="score-history-list" class="space-y-3 max-h-64 overflow-y-auto pr-2 custom-scrollbar"></div>
+            <button id="clear-scores" class="mt-8 text-[10px] uppercase tracking-widest font-bold text-[#432818] opacity-50 hover:opacity-100 transition">Clear History</button>
+        </div>
+    </div>
+
+    <div id="bookmark-modal" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-[#ddb892] border-4 border-[#b08968] p-8 rounded-[40px] max-w-md w-full shadow-2xl relative text-center">
+            <button id="close-bookmark-modal" class="absolute top-4 right-6 text-3xl text-[#432818] font-bold hover:scale-110 transition cursor-pointer">×</button>
+            <h2 class="h1 mb-6">Bookmarks 🔖</h2>
+            <div id="bookmark-list" class="space-y-3 max-h-80 overflow-y-auto pr-2 custom-scrollbar text-left"></div>
+            <button id="clear-bookmarks" class="mt-8 text-[10px] uppercase tracking-widest font-bold text-[#432818] opacity-50 hover:opacity-100 transition">Clear All</button>
         </div>
     </div>
 
